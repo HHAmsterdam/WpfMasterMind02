@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfMasterMind02
 {
-    class InitMm
+    public class InitMm
     {
         // define the inti of number of positions, tharacters and trails
         // and other settings
