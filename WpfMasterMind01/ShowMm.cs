@@ -11,30 +11,35 @@ namespace WpfMasterMind02
         // define new line just for abbreviation
         private readonly string nline = Environment.NewLine;
 
+        /// <summary>
+        /// display the score board after a reset
+        /// </summary>
         public string Score()
         {
-            // display the score board after a reset
-            string s =  $"Choose a player{nline}" +
-                        "if no player is available{nline}" +
-                        "add a player first";
-            return s;
+            return
+$@"Choose a player
+if no player is available
+add a player first";
         }
 
+        /// <summary>
+        /// display the score board of a player
+        /// </summary>
+        /// <param name="player"></param>
         public string Score(Player player)
         {
-            // display the score board of a player
-            string s =  $"Score {player.Name}{nline}" +
-                        $"number of games: {player.NmbGames}{nline}" +
-                        $"average trails : {player.AvgTrail}{nline}" +
-                        $"succes rate (%): {player.SuccessRate}";
-            return s;
+            return
+$@"Score {player.Name}
+number of games: {player.NmbGames}
+average trails : {player.AvgTrail}
+succes rate (%): {player.SuccessRate}";
         }
 
         public string Info()
         {
             // display the initional info board after a cold start
-            string s =  "Add one or more players" + nline +
-                        "alter the 'positions', 'letters'" + nline + 
+            string s = "Add one or more players" + nline +
+                        "alter the 'positions', 'letters'" + nline +
                         "and 'trails' if you like" + nline +
                         "press the 'start new game' button next";
             return s;
@@ -74,7 +79,7 @@ namespace WpfMasterMind02
 
                 case "input_int":
                     s = "Make all input for " + nline +
-                        "positions, letters and trails" + nline + 
+                        "positions, letters and trails" + nline +
                         "a number greater than zero";
                     return s;
 
@@ -86,13 +91,16 @@ namespace WpfMasterMind02
         public string Info(GameMm gameMm)
         {
             // show help text for a valid code
-            string s = "You may only enter codes of:" + nline ;
+            var sb = new StringBuilder();
+            sb.AppendLine("You may only enter codes of:");
+
             // add number of positions
-            s += gameMm.Pos.ToString() + " characters" + nline + "you may choose from:" + nline;
+            sb.AppendLine($"{gameMm.Pos} characters");
+            sb.AppendLine("you may choose from:");
             for (int i = (int)gameMm.FirstChr; i < (int)gameMm.FirstChr + gameMm.Chr; i++)
-                s+=" " + (char)i;
+                sb.Append(" " + (char)i);
             // return the help string
-            return s;
+            return sb.ToString();
         }
     }
 }
