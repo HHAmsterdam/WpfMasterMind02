@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfMasterMind02
 {
-    class CodeMm
+    public class CodeMm
     {
         // checks if a valid code is entered
         public bool CheckValid(string codeStr, GameMm gameMm )

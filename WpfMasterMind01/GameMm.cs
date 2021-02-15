@@ -6,40 +6,31 @@ using System.Threading.Tasks;
 
 namespace WpfMasterMind02
 {
-    class GameMm
+    public class GameMm
     {
         // number of positions in a code
-        public int Pos
-            { get; set; }
+        public int Pos { get; set; }
         // number of allowed characters on a position
-        public int Chr
-            { get; set; }
+        public int Chr { get; set; }
         // number of trails allowed for a player
-        public int Trl
-            { get; set; }
+        public int Trl { get; set; }
         // true if a game is being played
-        public bool Live
-            { get; set; }
+        public bool Live { get; set; }
         // rank number of the current player
         // so, the index of the list_players
         // 0 is first player, 1 is second player, etc
-        public int CurrPlay
-            { get; set; }
+        public int CurrPlay { get; set; }
         // the rank ofthe code to be guessed by the player, start at 0
-        public int CodeRank
-            { get; set; }
+        public int CodeRank { get; set; }
         // the code which is entered by the player
-        public string Code
-            { get; set; }
+        public string Code { get; set; }
         // the secret code to be guessed by the player
-        public string CodeSecret
-            { get; set; }
+        public string CodeSecret { get; set; }
         // the list with all positions and black/white interpretations of 
         // the entered codes
         private List<string> GameBoard = new List<string>();
         // the first character of the allowed characters (e.g. 'A')
-        public char FirstChr
-            { get; set; }
+        public char FirstChr { get; set; }
 
 
         // Constructor
@@ -65,8 +56,8 @@ namespace WpfMasterMind02
             if (int.TryParse(Pos, out int GPos) &&
                 int.TryParse(Chr, out int GChr) &&
                 int.TryParse(Trl, out int GTrl))
-                if ((GPos>0)&&(GChr>0)&&(GTrl>0))
-                        return true;
+                if ((GPos > 0) && (GChr > 0) && (GTrl > 0))
+                    return true;
             return false;
         }
 
@@ -83,7 +74,7 @@ namespace WpfMasterMind02
             GameBoard.Clear();
             // build new GameBoard with dots
             string s = new string('.', Pos) + "  ..." + Environment.NewLine;
-            for (int i=0; i < Trl; i++)
+            for (int i = 0; i < Trl; i++)
                 GameBoard.Add(s);
             // reset the rank of the first code to be entered by player
             CodeRank = 0;
@@ -106,13 +97,13 @@ namespace WpfMasterMind02
         // updates the gameboard with entered code
         // return true if won, ads B and W
         // Black right char right place, White is right char wrong place
-        public bool InterpCode (string codeTry)
+        public bool InterpCode(string codeTry)
         {
             // find the white characters, number of characters 
             // both in secret code and guessed codeTry
             string score = string.Empty;
             for (int i = 0; i < Chr; i++)
-                for (int j = 0; j < Math.Min(GetNmbChar(i, CodeSecret), GetNmbChar(i,codeTry)); j++)
+                for (int j = 0; j < Math.Min(GetNmbChar(i, CodeSecret), GetNmbChar(i, codeTry)); j++)
                     score += "W";
             // check for characters on the right place
             // alter the W into a B
@@ -156,7 +147,7 @@ namespace WpfMasterMind02
         public bool CheckTrails()
         {
             // true if player has lost
-            return Trl <= CodeRank+1;
+            return Trl <= CodeRank + 1;
         }
 
     }

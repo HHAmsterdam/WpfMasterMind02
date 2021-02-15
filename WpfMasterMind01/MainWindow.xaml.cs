@@ -88,7 +88,7 @@ namespace WpfMasterMind02
                 // display the game board
                 txtBoard.Text = GameMm.DisplayGameBoard();
                 // go the the next Rank for next entered code 
-                GameMm.CodeRank += 1;
+                GameMm.CodeRank++;
             }
         }
 

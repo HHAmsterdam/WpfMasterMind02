@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfMasterMind02
 {
-    class ShowMm
+    public class ShowMm
     {
         // define new line just for abbreviation
         private readonly string nline = Environment.NewLine;
@@ -14,8 +14,8 @@ namespace WpfMasterMind02
         public string Score()
         {
             // display the score board after a reset
-            string s =  "Choose a player" + nline +
-                        "if no player is available" + nline +
+            string s =  $"Choose a player{nline}" +
+                        "if no player is available{nline}" +
                         "add a player first";
             return s;
         }
@@ -23,10 +23,10 @@ namespace WpfMasterMind02
         public string Score(Player player)
         {
             // display the score board of a player
-            string s =  "Score " + player.Name + nline +
-                        "number of games: " + player.NmbGames + nline +
-                        "average trails : " + player.AvgTrail + nline +
-                        "succes rate (%): " + player.SuccessRate;
+            string s =  $"Score {player.Name}{nline}" +
+                        $"number of games: {player.NmbGames}{nline}" +
+                        $"average trails : {player.AvgTrail}{nline}" +
+                        $"succes rate (%): {player.SuccessRate}";
             return s;
         }
 
