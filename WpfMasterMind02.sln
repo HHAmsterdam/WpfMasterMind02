@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfMasterMind02", "WpfMasterMind01\WpfMasterMind02.csproj", "{BD9A1AC2-FCD8-45D5-8E10-B02D34F4BB2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD9A1AC2-FCD8-45D5-8E10-B02D34F4BB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD9A1AC2-FCD8-45D5-8E10-B02D34F4BB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD9A1AC2-FCD8-45D5-8E10-B02D34F4BB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD9A1AC2-FCD8-45D5-8E10-B02D34F4BB2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EAA2B3A-EE64-498D-887E-80E81E4A0C0D}
+	EndGlobalSection
+EndGlobal
