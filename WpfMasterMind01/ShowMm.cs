@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace WpfMasterMind02
 {
+    /// <summary>
+    /// handles all the text used in the GUI
+    /// </summary>
     public class ShowMm
     {
         // define new line just for abbreviation
@@ -17,77 +20,90 @@ namespace WpfMasterMind02
         public string Score()
         {
             return
-$@"Choose a player
-if no player is available
-add a player first";
+               "Choose a player" + nline +
+               "if no player is available" + nline +
+               "add a player first";
         }
 
         /// <summary>
         /// display the score board of a player
         /// </summary>
         /// <param name="player"></param>
+        /// <returns>the string to be displayed in the ScoreBox</returns>
         public string Score(Player player)
         {
             return
-$@"Score {player.Name}
-number of games: {player.NmbGames}
-average trails : {player.AvgTrail}
-succes rate (%): {player.SuccessRate}";
+                $"Score {player.Name}" + nline +
+                $"number of games: {player.NmbGames}" + nline +
+                $"average trails : {player.AvgTrail}" + nline +
+                $"succes rate (%): {player.SuccessRate}";
         }
 
+        /// <summary>
+        /// display the initional info board after a cold start
+        /// </summary>
+        /// <returns> the string to be displayed in the InfoBox</returns>
         public string Info()
         {
-            // display the initional info board after a cold start
-            string s = "Add one or more players" + nline +
-                        "alter the 'positions', 'letters'" + nline +
-                        "and 'trails' if you like" + nline +
-                        "press the 'start new game' button next";
-            return s;
+            return
+                "Add one or more players" + nline +
+                "alter the 'positions', 'letters'" + nline +
+                "and 'trails' if you like" + nline +
+                "press the 'start new game' button next";
         }
 
-        public string Info(string SwitcStr)
+        /// <summary>
+        /// different text for the InfoBox
+        /// </summary>
+        /// <param name="SwitchStr"></param>
+        /// <returns> the string to be displayed in the InfoBox</returns>
+        public string Info(string SwitchStr)
         {
-            String s;
-
-            switch (SwitcStr)
+            switch (SwitchStr)
             {
                 case "player_chosen":
-                    s = "press 'start new game' " + nline +
+                    return
+                        "press 'start new game' " + nline +
                         "and fill in a next code";
-                    return s;
 
                 case "player_added":
-                    s = "press 'start new game' " + nline +
+                    return
+                        "press 'start new game' " + nline +
                         "and fill in a next code" + nline +
                         "or add more players";
-                    return s;
 
                 case "player_deleted":
-                    s = "player is deleted " + nline +
+                    return
+                        "player is deleted " + nline +
                         "choose or add a new player";
-                    return s;
 
                 case "start_game":
-                    s = "Let's go and play! " + nline +
+                    return 
+                        "Let's go and play! " + nline +
                         "fill in a next code and press 'go'";
-                    return s;
 
                 case "choose_player_first":
-                    s = "Almost ready " + nline +
+                    return
+                        "Almost ready " + nline +
                         "choose or add a player first";
-                    return s;
 
                 case "input_int":
-                    s = "Make all input for " + nline +
+                    return
+                        "Make all input for " + nline +
                         "positions, letters and trails" + nline +
                         "a number greater than zero";
-                    return s;
 
                 default:
-                    return "WARNING ShowMm, not defined: " + SwitcStr;
+                    return "WARNING ShowMm, not defined: " + SwitchStr;
             }
         }
 
+        /// <summary>
+        /// generates a text to help the player
+        /// to enter a valid code
+        /// </summary>
+        /// <param name="gameMm"></param>
+        /// <returns>the string to be displayed in the InfoBox</returns>
         public string Info(GameMm gameMm)
         {
             // show help text for a valid code
