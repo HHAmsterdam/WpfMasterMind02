@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WpfMasterMind02
-{
+{   /// <summary>
+    /// contains all info of a game 
+    /// </summary>
     public class GameMm
     {
         // number of positions in a code
@@ -32,8 +34,9 @@ namespace WpfMasterMind02
         // the first character of the allowed characters (e.g. 'A')
         public char FirstChr { get; set; }
 
-
-        // Constructor
+        /// <summary>
+        /// Constructor, init the game 
+        /// </summary>
         public GameMm()
         {
             //set live false at start, no game is being played yet
@@ -49,7 +52,13 @@ namespace WpfMasterMind02
             CodeSecret = string.Empty;
         }
 
-        // check the input of Pos, Chr and Trl for valid
+        /// <summary>
+        /// check the input of Pos, Chr and Trl for valid
+        /// </summary>
+        /// <param name="Pos"></param>
+        /// <param name="Chr"></param>
+        /// <param name="Trl"></param>
+        /// <returns>True if all parameters are integer greater than 0</returns>
         public bool CheckInput(string Pos, String Chr, String Trl)
         {
             // return true if Pos, Chr and Trl are greater than 0
@@ -62,8 +71,13 @@ namespace WpfMasterMind02
         }
 
 
-
-        // start a new game, with empty list gameboard
+        /// <summary>
+        /// start a new game, with empty list gameboard 
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <param name="chr"></param>
+        /// <param name="trl"></param>
+        /// <param name="firstChr"></param>
         public void SetGame(int pos, int chr, int trl, char firstChr)
         {
             // read the settings of the game
@@ -84,7 +98,10 @@ namespace WpfMasterMind02
             Live = true;
         }
 
-        // returns a string that can be written to the UI gameboard
+        /// <summary>
+        /// returns a string that can be written to the UI gameboard
+        /// </summary>
+        /// <returns>string which can be used as text for the gameBoardBlock</returns>
         public string DisplayGameBoard()
         {
             // build string s that contains the dots for the gameboard
@@ -94,9 +111,13 @@ namespace WpfMasterMind02
             return s;
         }
 
-        // updates the gameboard with entered code
-        // return true if won, ads B and W
-        // Black right char right place, White is right char wrong place
+        /// <summary>
+        /// updates the gameboard with entered code
+        /// ads B and W
+        /// Black right char right place, White is right char wrong place
+        /// </summary>
+        /// <param name="codeTry"></param>
+        /// <returns>True if won</returns>
         public bool InterpCode(string codeTry)
         {
             // find the white characters, number of characters 
@@ -129,8 +150,13 @@ namespace WpfMasterMind02
         }
 
 
-        // get the number of char in the code with the requested rank
-        // e.g. charRank=0 get number of 'A',charRank=1 get number of 'B', charRank=2 ... 
+        /// <summary>
+        /// get the number of char in the code with the requested rank
+        /// e.g. charRank=0 get number of 'A',charRank=1 get number of 'B', charRank=2 ...
+        /// </summary>
+        /// <param name="charRank"></param>
+        /// <param name="code"></param>
+        /// <returns>the number of chars of charRank in code</returns>
         public int GetNmbChar(int charRank, string code)
         {
             // init the number of char
@@ -143,7 +169,10 @@ namespace WpfMasterMind02
             return nmbRankChar;
         }
 
-        // check if a player has run out of trails and loses
+        /// <summary>
+        /// check if a player has run out of trails and loses
+        /// </summary>
+        /// <returns>True if player has lost</returns>
         public bool CheckTrails()
         {
             // true if player has lost
