@@ -93,6 +93,12 @@ namespace WpfMasterMind02
                         "positions, letters and trails" + nline +
                         "a number greater than zero";
 
+                case "place_name":
+                    return
+                        "write the name of the player " + nline +
+                        "to be added to the game" + nline +
+                        "at least one character";
+
                 default:
                     return "WARNING ShowMm, not defined: " + SwitchStr;
             }

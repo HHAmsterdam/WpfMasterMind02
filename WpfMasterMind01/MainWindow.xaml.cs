@@ -48,6 +48,11 @@ namespace WpfMasterMind02
         // instance of the code handler
         CodeMm CodeMm = new CodeMm();
         
+        /// <summary>
+        /// handler for go-button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonGo_Click(object sender, RoutedEventArgs e)
         {
             // only act if a game is live with an existing player
@@ -92,6 +97,11 @@ namespace WpfMasterMind02
             }
         }
 
+        /// <summary>
+        /// handler for reset button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonRst_Click(object sender, RoutedEventArgs e)
         {
             // reset the game, clear the list of players
@@ -112,7 +122,11 @@ namespace WpfMasterMind02
             txtBoard.Text = string.Empty;
         }
 
-        // start a new game
+        /// <summary>
+        /// handler for start a new game button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonStrt_Click(object sender, RoutedEventArgs e)
         {   // check for filtering on positive number input only
             if (GameMm.CheckInput(TxtPos.Text,TxtChr.Text,TxtTrl.Text))
@@ -136,12 +150,17 @@ namespace WpfMasterMind02
             txtBoard.Text = GameMm.DisplayGameBoard();
         }
 
+        /// <summary>
+        /// handler for add player button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             // make the txtbox for new player visible if needed
             if (TxtNewPlayer.Visibility == Visibility.Hidden)
                 TxtNewPlayer.Visibility = Visibility.Visible;
-            else
+            else if (!string.IsNullOrWhiteSpace(TxtNewPlayer.Text))
             {
                 // add new player to combobox, show player as selected
                 ComboPlayer.SelectedIndex = ComboPlayer.Items.Add(TxtNewPlayer.Text);
@@ -150,16 +169,23 @@ namespace WpfMasterMind02
                 // add new player to the list_players (first player has index 0)
                 list_players.Add(new Player(TxtNewPlayer.Text));
                 // show the score of the new player in score board
-                txtScore.Text = ShowMm.Score(list_players[ComboPlayer.SelectedIndex-1]);
+                txtScore.Text = ShowMm.Score(list_players[ComboPlayer.SelectedIndex - 1]);
                 // set the current player
                 GameMm.CurrPlay = ComboPlayer.SelectedIndex - 1;
                 // clear the info board
-                txtInfo.Text= string.Empty;
+                txtInfo.Text = string.Empty;
                 // show some startup text
                 txtInfo.Text = ShowMm.Info("player_added");
             }
+            else
+                txtInfo.Text = ShowMm.Info("place_name");
         }
 
+        /// <summary>
+        /// handler for delete a player button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDel_Click(object sender, RoutedEventArgs e)
         {
             // delete the player that is selected in the combobox
@@ -180,6 +206,11 @@ namespace WpfMasterMind02
             txtInfo.Text = ShowMm.Info("player_deleted");
         }
 
+        /// <summary>
+        /// handler for drop the player comobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboPlayer_DropDownClosed(object sender, EventArgs e)
         {
             // show score of selected player, or startup txt if no player selected
@@ -201,6 +232,11 @@ namespace WpfMasterMind02
             }
         }
 
+        /// <summary>
+        /// handler when mouse enters the add player box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TxtNewPlayer_MouseEnter(object sender, MouseEventArgs e)
         {
             // clears the NewPlayer input when mouse enters
