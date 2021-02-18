@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace WpfMasterMind02
 {
+    /// <summary>
+    /// has all info of a player
+    /// </summary>
     public class Player
     {
         // the neame of the player
@@ -26,7 +29,10 @@ namespace WpfMasterMind02
         // nmber of succeed games / totol number of games
         public double SuccessRate { get; set; }
 
-        // the constructor
+        /// <summary>
+        /// constructs a player
+        /// </summary>
+        /// <param name="name"></param>        
         public Player(string name)
         {
             Name = name;
@@ -37,7 +43,11 @@ namespace WpfMasterMind02
             SuccessRate = 0;
         }
 
-        // update the score of a player
+        /// <summary>
+        /// update the score of a player
+        /// </summary>
+        /// <param name="gameMm"></param>
+        /// <param name="lost"></param>        
         public void Update(GameMm gameMm, bool lost)
         {
             // update the number of playd games

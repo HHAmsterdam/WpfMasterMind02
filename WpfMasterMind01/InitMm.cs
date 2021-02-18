@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace WpfMasterMind02
 {
+    /// <summary>
+    /// define here all properties to init the game
+    /// </summary>
     public class InitMm
     {
         // define the inti of number of positions, tharacters and trails

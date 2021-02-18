@@ -5,10 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WpfMasterMind02
-{
+{   /// <summary>
+    /// handles a code in the game 
+    /// </summary>
     public class CodeMm
     {
-        // checks if a valid code is entered
+        /// <summary>
+        /// checks if a valid code is entered
+        /// </summary>
+        /// <param name="codeStr"></param>
+        /// <param name="gameMm"></param>
+        /// <returns>True if the code is valid</returns>
         public bool CheckValid(string codeStr, GameMm gameMm )
         {
             // check if code has obliged nmb of characters
@@ -23,7 +30,11 @@ namespace WpfMasterMind02
             return true;
         }
 
-        // Generate a random valid code
+        /// <summary>
+        /// Generate a random valid code
+        /// </summary>
+        /// <param name="gameMm"></param>
+        /// <returns>a random valid code</returns>        
         public string GenCode(GameMm gameMm)
         {
             // get an instance of a random object
