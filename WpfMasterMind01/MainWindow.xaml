@@ -54,8 +54,8 @@
         <DockPanel Grid.Row="9" Grid.Column="1" LastChildFill="False">
             <Label DockPanel.Dock="Left"  Margin="10,0,5,0" FontSize="14" Content="player"/>
             <WrapPanel DockPanel.Dock="Right">
-                <Button Margin="5,5,5,5"  FontSize="14" Content=" add " Name="ButtonAdd" Click="ButtonAdd_Click"/>
-                <Button Margin="5,5,5,5"  FontSize="14" Content=" del " Name="ButtonDel" Click="ButtonDel_Click" />
+                <Button Margin="5,5,5,5"  FontSize="14" Content=" add player " Name="ButtonAdd" Click="ButtonAdd_Click"/>
+                <Button Margin="5,5,5,5"  FontSize="14" Content=" delete player " Name="ButtonDel" Click="ButtonDel_Click" />
             </WrapPanel>
         </DockPanel>
         <ComboBox Grid.Row="10" Grid.Column="1" Name="ComboPlayer" Margin="10,5,10,10"  DropDownClosed="ComboPlayer_DropDownClosed"/>

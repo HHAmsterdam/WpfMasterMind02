@@ -46,10 +46,7 @@ namespace WpfMasterMind02
         public string Info()
         {
             return
-                "Add one or more players" + nline +
-                "alter the 'positions', 'letters'" + nline +
-                "and 'trails' if you like" + nline +
-                "press the 'start new game' button next";
+                "Add a player first";
         }
 
         /// <summary>
@@ -68,9 +65,9 @@ namespace WpfMasterMind02
 
                 case "player_added":
                     return
-                        "press 'start new game' " + nline +
-                        "and fill in a next code" + nline +
-                        "or add more players";
+                        "add more players" + nline +
+                        "or"+ nline +
+                        "press 'start new game' ";
 
                 case "player_deleted":
                     return
